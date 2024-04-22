@@ -41,9 +41,6 @@ export const registeruser=async(req,res,next)=>{
 export const loginuser=async(req,res,next)=>{
     try {
         const {username,password,email}=req.body;
-        if(!email){
-            return res.status(200).send("email is present");
-        }
         if(!username && !email){
             return res.status(400).json({message:"Atleast one field is required"});
         }
