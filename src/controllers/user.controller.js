@@ -64,7 +64,6 @@ export const loginuser=async(req,res,next)=>{
         const options={
             httpOnly:true,
             secure:true,
-            maxAge: 24*60*60*1000
         }
         return res.status(201).cookie("accessToken",accesstoken,options).cookie("refreshToken",refreshtoken,options).json({message:"Login successful",user:responseuser,accesstoken:accesstoken,refreshtoken:refreshtoken});
     } catch (error) {
@@ -104,7 +103,6 @@ export const refreshtokengeneratorafterlogin=async(req,res,next)=>{
     const options={
         httpOnly:true,
         secure:true,
-        maxAge: 24*60*60*1000
     }
     res.status(200).cookie("accessToken",accesstoken,options).cookie("refreshToken",reftok,options).json({message:"Refresh token generated",accesstoken:accesstoken,refreshtoken:refreshtoken});
 
