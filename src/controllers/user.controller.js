@@ -87,7 +87,7 @@ export const logoutuser=async(req,res,next)=>{
     }
 }
 export const refreshtokengeneratorafterlogin=async(req,res,next)=>{
-    const incomingtoken=req?.cookies?.refresh_token||req.body.refresh_token;
+    const incomingtoken=req?.cookies?.refresh_token||req.body.refresh_token||req.headers?.authorization?.split(" ")[1];
     if(!incomingtoken){
         return res.status(404).json({message:"Refresh token not found"});
     }
